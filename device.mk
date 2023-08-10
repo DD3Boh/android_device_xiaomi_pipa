@@ -40,6 +40,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     XiaomiPeripheralManager
 
+# Rootdir
+PRODUCT_PACKAGES += \
+    init.device.rc
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
