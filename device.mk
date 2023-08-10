@@ -44,6 +44,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml
 
+# Rootdir
+PRODUCT_PACKAGES += \
+    init.device.rc
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
