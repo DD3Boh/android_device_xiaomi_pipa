@@ -13,5 +13,9 @@ android_app {
     system_ext_specific: true,
     static_libs: [
         "androidx.core_core",
+        "vendor.lineage.xiaomitouch-java",
+    ],
+    required: [
+        "vendor.lineage.xiaomitouch-service",
     ],
 }
