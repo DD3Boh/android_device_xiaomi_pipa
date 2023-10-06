@@ -14,6 +14,10 @@ BUILD_BROKEN_DUP_RULES := true
 # Display
 TARGET_SCREEN_DENSITY := 400
 
+# HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(DEVICE_PATH)/configs/vintf/framework_matrix.xml
+
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/pipa.config
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
