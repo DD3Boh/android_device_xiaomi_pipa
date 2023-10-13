@@ -16,9 +16,6 @@
 */
 -->
 <resources>
-    <dimen name="config_rounded_mask_size">156px</dimen>
-    <dimen name="config_rounded_mask_size_top">@dimen/config_rounded_mask_size</dimen>
-    <dimen name="config_rounded_mask_size_bottom">@dimen/config_rounded_mask_size</dimen>
 
     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
          navigation_extra_key_width -->
