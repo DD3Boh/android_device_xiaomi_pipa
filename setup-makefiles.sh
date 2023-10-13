@@ -7,7 +7,7 @@
 
 set -e
 
-export DEVICE=alioth
+export DEVICE=pipa
 export DEVICE_COMMON=sm8250-common
 export VENDOR=xiaomi
 
