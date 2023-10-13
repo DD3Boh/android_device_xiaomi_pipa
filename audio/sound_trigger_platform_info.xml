@@ -66,6 +66,7 @@
         <param DEVICE_HANDSET_QMIC_LPI_APE="181" />
         <param DEVICE_HEADSET_MIC_APE="141" />
         <param DEVICE_HEADSET_MIC_APE_LPI="182" />
+        <param DEVICE_HANDSET_DMIC_BT_APE="10037" />
     </acdb_ids>
 
     <!-- Multiple sound_model_config tags can be listed, each with unique   -->
@@ -74,7 +75,7 @@
 
     <!-- QTI SVA -->
     <sound_model_config>
-        <param vendor_uuid="68ab2d40-e860-11e3-95ef-0002a5d5c51b" />
+        <param vendor_uuid="61696d69-30f2-11e6-b0ac-40a8f03d3f1b" />
         <param execution_type="ADSP" />
         <param merge_first_stage_sound_models="false"/>
         <param max_ape_phrases="20" />
@@ -83,36 +84,8 @@
         <param sample_rate="16000" />
         <param bit_width="16" />
         <param out_channels="1"/> <!-- Module output channels -->
-
-        <arm_ss_usecase>
-            <!-- Options are "KEYWORD_DETECTION", "USER_VERIFICATION", "CUSTOM_DETECTION"  -->
-            <param sm_detection_type= "KEYWORD_DETECTION" />
-            <param sm_id="0x2" />
-            <param module_lib="libcapiv2svacnn.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-        </arm_ss_usecase>
-        <arm_ss_usecase>
-            <param sm_detection_type= "USER_VERIFICATION" />
-            <param sm_id="0x4" />
-            <param module_lib="libcapiv2vop.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-        </arm_ss_usecase>
-        <arm_ss_usecase>
-            <param sm_detection_type= "KEYWORD_DETECTION" />
-            <param sm_id="0x8" />
-            <param module_lib="libcapiv2svarnn.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-        </arm_ss_usecase>
-        <!-- Module and param ids with which the algorithm is integrated
-            in non-graphite firmware (note these must come after gcs params)
-            Extends flexibility to have different ids based on execution type.
-            valid execution_type values: "WDSP" "ADSP" -->
+        <param dam_token_id="1"/>
+        <param second_stage_supported="false"/>
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
@@ -132,25 +105,21 @@
             <!-- LPI: This mode type will be used for LPI usecases. -->
             <param lpi_mode="NON_LPI_BARGE_IN" />
             <param app_type="2" /> <!-- app type used in ACDB -->
-            <param in_channels="2"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param in_channels="1"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="DEFAULT" />
+            <param adm_cfg_profile="FFECNS" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
-            <param fluence_type="NONE" />
+            <param fluence_type="FLUENCE_DMIC" />
             <param execution_mode="ADSP" />
             <!-- lpi_mode: "NON_LPI_BARGE_IN", "NON_LPI", "LPI" -->
             <!-- NON_LPI_BARGE_IN: Default non-LPI mode type. lsm_usecase -->
@@ -161,14 +130,10 @@
             <!-- LPI: This mode type will be used for LPI usecases. -->
             <param lpi_mode="LPI" />
             <param app_type="2" /> <!-- app type used in ACDB -->
-            <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param in_channels="2"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
         <lsm_usecase>
@@ -178,16 +143,11 @@
             <param execution_mode="ADSP" />
             <param app_type="2" /> <!-- app type used in ACDB -->
             <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
-
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->
         <!-- transfer_mode: "FTRT" or "RT" -->
         <!--  kw_duration is in milli seconds. It is valid only for FTRT
@@ -198,7 +158,7 @@
 
         <!-- QTI SVA -->
     <sound_model_config>
-        <param vendor_uuid="68ab2d40-e860-11e3-95ef-0002a5d5c51c" />
+        <param vendor_uuid="61696d69-30f2-11e6-b0ac-40a8f03d3f1c" />
         <param execution_type="ADSP" />
         <param merge_first_stage_sound_models="false"/>
         <param max_ape_phrases="20" />
@@ -210,38 +170,8 @@
         <param dam_token_id="1"/>
         <param kw_start_tolerance="300"/>
         <param kw_end_tolerance="480"/>
+        <param second_stage_supported="false"/>
 
-        <arm_ss_usecase>
-            <!-- Options are "KEYWORD_DETECTION", "USER_VERIFICATION", "CUSTOM_DETECTION"  -->
-            <param sm_detection_type= "KEYWORD_DETECTION" />
-            <param sm_id="0x2" />
-            <param module_lib="libcapiv2svacnn.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-            <param data_after_kw_end="600"/>
-        </arm_ss_usecase>
-        <arm_ss_usecase>
-            <param sm_detection_type= "USER_VERIFICATION" />
-            <param sm_id="0x4" />
-            <param module_lib="libcapiv2vop.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-        </arm_ss_usecase>
-        <arm_ss_usecase>
-            <param sm_detection_type= "KEYWORD_DETECTION" />
-            <param sm_id="0x8" />
-            <param module_lib="libcapiv2svarnn.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-            <param data_after_kw_end="600"/>
-        </arm_ss_usecase>
-        <!-- Module and param ids with which the algorithm is integrated
-            in non-graphite firmware (note these must come after gcs params)
-            Extends flexibility to have different ids based on execution type.
-            valid execution_type values: "WDSP" "ADSP" -->
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
@@ -261,25 +191,21 @@
             <!-- LPI: This mode type will be used for LPI usecases. -->
             <param lpi_mode="NON_LPI_BARGE_IN" />
             <param app_type="2" /> <!-- app type used in ACDB -->
-            <param in_channels="2"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param in_channels="1"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="DEFAULT" />
+            <param adm_cfg_profile="FFECNS" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
-            <param fluence_type="NONE" />
+            <param fluence_type="FLUENCE_DMIC" />
             <param execution_mode="ADSP" />
             <!-- lpi_mode: "NON_LPI_BARGE_IN", "NON_LPI", "LPI" -->
             <!-- NON_LPI_BARGE_IN: Default non-LPI mode type. lsm_usecase -->
@@ -290,14 +216,10 @@
             <!-- LPI: This mode type will be used for LPI usecases. -->
             <param lpi_mode="LPI" />
             <param app_type="2" /> <!-- app type used in ACDB -->
-            <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param in_channels="2"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
         <lsm_usecase>
@@ -307,16 +229,11 @@
             <param execution_mode="ADSP" />
             <param app_type="2" /> <!-- app type used in ACDB -->
             <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
-
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->
         <!-- transfer_mode: "FTRT" or "RT" -->
         <!--  kw_duration is in milli seconds. It is valid only for FTRT
@@ -327,7 +244,7 @@
 
         <!-- QTI SVA -->
     <sound_model_config>
-        <param vendor_uuid="68ab2d40-e860-11e3-95ef-0002a5d5c51d" />
+        <param vendor_uuid="61696d69-30f2-11e6-b0ac-40a8f03d3f1d" />
         <param execution_type="ADSP" />
         <param merge_first_stage_sound_models="false"/>
         <param max_ape_phrases="20" />
@@ -339,38 +256,8 @@
         <param dam_token_id="1"/>
         <param kw_start_tolerance="700"/>
         <param kw_end_tolerance="600"/>
+        <param second_stage_supported="false"/>
 
-        <arm_ss_usecase>
-            <!-- Options are "KEYWORD_DETECTION", "USER_VERIFICATION", "CUSTOM_DETECTION"  -->
-            <param sm_detection_type= "KEYWORD_DETECTION" />
-            <param sm_id="0x2" />
-            <param module_lib="libcapiv2svacnn.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-            <param data_after_kw_end="1000"/>
-        </arm_ss_usecase>
-        <arm_ss_usecase>
-            <param sm_detection_type= "USER_VERIFICATION" />
-            <param sm_id="0x4" />
-            <param module_lib="libcapiv2vop.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-        </arm_ss_usecase>
-        <arm_ss_usecase>
-            <param sm_detection_type= "KEYWORD_DETECTION" />
-            <param sm_id="0x8" />
-            <param module_lib="libcapiv2svarnn.so"/>
-            <param sample_rate="16000"/>
-            <param bit_wdith="16"/>
-            <param channel_count="1"/>
-            <param data_after_kw_end="1000"/>
-        </arm_ss_usecase>
-        <!-- Module and param ids with which the algorithm is integrated
-            in non-graphite firmware (note these must come after gcs params)
-            Extends flexibility to have different ids based on execution type.
-            valid execution_type values: "WDSP" "ADSP" -->
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
@@ -390,25 +277,21 @@
             <!-- LPI: This mode type will be used for LPI usecases. -->
             <param lpi_mode="NON_LPI_BARGE_IN" />
             <param app_type="2" /> <!-- app type used in ACDB -->
-            <param in_channels="2"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param in_channels="1"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="DEFAULT" />
+            <param adm_cfg_profile="FFECNS" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
-            <param fluence_type="NONE" />
+            <param fluence_type="FLUENCE_DMIC" />
             <param execution_mode="ADSP" />
             <!-- lpi_mode: "NON_LPI_BARGE_IN", "NON_LPI", "LPI" -->
             <!-- NON_LPI_BARGE_IN: Default non-LPI mode type. lsm_usecase -->
@@ -419,14 +302,10 @@
             <!-- LPI: This mode type will be used for LPI usecases. -->
             <param lpi_mode="LPI" />
             <param app_type="2" /> <!-- app type used in ACDB -->
-            <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param in_channels="2"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
         <lsm_usecase>
@@ -436,16 +315,11 @@
             <param execution_mode="ADSP" />
             <param app_type="2" /> <!-- app type used in ACDB -->
             <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x00012C1C, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x00012C1C, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x00012C1C, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x00012C1C, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x00012C1C, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x00012C1C, 0x0, 0x00012C20" />
-            <param det_event_type_ids="0x00012C1C, 0x0, 0x00012C2C" />
+            <param load_sound_model_ids="0x1000A301, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x1000A301, 0x0, 0x00012C15" />
+            <param custom_config_ids="0x1000A301, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
         </lsm_usecase>
-
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->
         <!-- transfer_mode: "FTRT" or "RT" -->
         <!--  kw_duration is in milli seconds. It is valid only for FTRT
@@ -518,7 +392,6 @@
         <param sample_rate="16000" />
         <param bit_width="16" />
         <param out_channels="1"/> <!-- Module output channels -->
-        <param get_module_version="true"/>
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
@@ -543,7 +416,6 @@
             <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
             <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
-            <param version_ids="0x18000001, 0x0, 0x18000101" />
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HANDSET" />
@@ -569,7 +441,6 @@
             <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
             <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
-            <param version_ids="0x18000001, 0x0, 0x18000101" />
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HEADSET" />
@@ -582,7 +453,6 @@
             <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
             <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
             <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
-            <param version_ids="0x18000001, 0x0, 0x18000101" />
         </lsm_usecase>
 
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->
@@ -613,7 +483,7 @@
             <!-- is FFECNS -->
             <param fluence_type="NONE" />
             <param execution_mode="ADSP" />
-            <param app_type="3" /> <!-- app type used in ACDB -->
+            <param app_type="4" /> <!-- app type used in ACDB -->
             <param in_channels="1"/> <!-- Module input channels -->
             <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
             <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
@@ -627,7 +497,7 @@
             <param adm_cfg_profile="DEFAULT" />
             <param fluence_type="NONE" />
             <param execution_mode="ADSP" />
-            <param app_type="3" /> <!-- app type used in ACDB -->
+            <param app_type="4" /> <!-- app type used in ACDB -->
             <param in_channels="1"/> <!-- Module input channels -->
             <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
             <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
@@ -652,7 +522,7 @@
         <param app_type="69947" />
         <param sample_rate="16000" />
         <param bit_width="16" />
-        <param out_channels="2"/>
+        <param out_channels="3"/>
     </adm_config>
 
     <adm_config>
