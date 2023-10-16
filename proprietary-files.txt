@@ -44,13 +44,13 @@ vendor/lib/rfsa/adsp/misound_res_spk.bin
 
 # Audio-Hardware
 vendor/lib/hw/audio.primary.kona.so
-vendor/lib/vndk/libxlog.so
 vendor/lib/liba2dpoffload.so
 vendor/lib/libaudio_log_utils.so
+vendor/lib/libaudiocloudctrl.so
 vendor/lib/libaudioroute_ext.so
 vendor/lib/libresampler.so
 vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
-vendor/lib/libaudiocloudctrl.so
+vendor/lib/vndk/libxlog.so
 vendor/lib64/libaudiocloudctrl.so
 
 
@@ -64,10 +64,10 @@ vendor/lib/camera/com.qti.eeprom.pipa_ofilm_ov13b10_bl24sa64_wide_eeprom.so
 vendor/lib/camera/com.qti.eeprom.truly_cmb433.so
 vendor/lib/camera/com.qti.eeprom.umi_sunny_s5k5e8yx_depth.so
 vendor/lib/camera/com.qti.sensor.imx563.so
-vendor/lib/camera/com.qti.sensormodule.pipa_aac_hi846w_front.bin
-vendor/lib/camera/com.qti.sensormodule.pipa_ofilm_ov13b10_wide.bin
 vendor/lib/camera/com.qti.sensor.pipa_aac_hi846w_front.so
 vendor/lib/camera/com.qti.sensor.pipa_ofilm_ov13b10_wide.so
+vendor/lib/camera/com.qti.sensormodule.pipa_aac_hi846w_front.bin
+vendor/lib/camera/com.qti.sensormodule.pipa_ofilm_ov13b10_wide.bin
 vendor/lib/camera/com.qti.tuned.default.bin
 vendor/lib/camera/com.qti.tuned.pipa_aac_hi846w_front.bin
 vendor/lib/camera/com.qti.tuned.pipa_ofilm_ov13b10_wide.bin
@@ -96,6 +96,7 @@ vendor/lib/com.qti.feature2.swmf.so
 vendor/lib/hw/camera.qcom.so
 vendor/lib/hw/com.qti.chi.override.so
 vendor/lib/libAF.so
+vendor/lib/libXMFaceFocus.so
 vendor/lib/libcamera_nn_stub.so
 vendor/lib/libcamerapostproc.so
 vendor/lib/libcamlog.so
@@ -104,36 +105,35 @@ vendor/lib/libcapiv2svarnn.so
 vendor/lib/libcapiv2vop.so
 vendor/lib/libchilog.so
 vendor/lib/libcom.qti.chinodeutils.so
-vendor/lib/libcvp2_hfi.so
 vendor/lib/libcvp2.so
+vendor/lib/libcvp2_hfi.so
 vendor/lib/libcvp_common.so
 vendor/lib/libcvpcpuRev_skel.so
 vendor/lib/libipebpsstriping.so
 vendor/lib/libnanopb.so
 vendor/lib/libofflinelog.so
 vendor/lib/libos.so
-vendor/lib/libsnsapi.so
 vendor/lib/libsns_device_mode_stub.so
-vendor/lib/libsnsdiaglog.so
 vendor/lib/libsns_fastRPC_util.so
 vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/libsns_registry_skel.so
+vendor/lib/libsnsapi.so
+vendor/lib/libsnsdiaglog.so
 vendor/lib/libswregistrationalgo.so
 vendor/lib/libswvdec.so
 vendor/lib/libsynx.so
 vendor/lib/libthirdpartpkg.so
 vendor/lib/libthreadutils.so
 vendor/lib/libvideoutils.so
-vendor/lib/libXMFaceFocus.so
 vendor/lib64/camera/com.qti.actuator.pipa_cn3927_ov13b10.so
 vendor/lib64/camera/com.qti.eeprom.pipa_aac_hi846w_gt24p64e_front_eeprom.so
 vendor/lib64/camera/com.qti.eeprom.pipa_ofilm_ov13b10_bl24sa64_wide_eeprom.so
 vendor/lib64/camera/com.qti.eeprom.truly_cmb433.so
 vendor/lib64/camera/com.qti.eeprom.umi_sunny_s5k5e8yx_depth.so
-vendor/lib64/camera/com.qti.sensormodule.pipa_aac_hi846w_front.bin
-vendor/lib64/camera/com.qti.sensormodule.pipa_ofilm_ov13b10_wide.bin
 vendor/lib64/camera/com.qti.sensor.pipa_aac_hi846w_front.so
 vendor/lib64/camera/com.qti.sensor.pipa_ofilm_ov13b10_wide.so
+vendor/lib64/camera/com.qti.sensormodule.pipa_aac_hi846w_front.bin
+vendor/lib64/camera/com.qti.sensormodule.pipa_ofilm_ov13b10_wide.bin
 vendor/lib64/camera/com.qti.tuned.default.bin
 vendor/lib64/camera/com.qti.tuned.pipa_aac_hi846w_front.bin
 vendor/lib64/camera/com.qti.tuned.pipa_aac_hi846w_front.bin
@@ -164,35 +164,37 @@ vendor/lib64/com.qti.feature2.swmf.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libAF.so
+vendor/lib64/libI420colorconvert.so
+vendor/lib64/libSNPE.so
+vendor/lib64/libXMFaceFocus.so
 vendor/lib64/libalAILDC.so
 vendor/lib64/libalCFR.so
-vendor/lib64/libalhLDC.so
 vendor/lib64/libalLDC.so
+vendor/lib64/libalhLDC.so
+vendor/lib64/libc++_shared.so
 vendor/lib64/libcamera_nn_stub.so
-vendor/lib64/libcamerapostproc.so
 vendor/lib64/libcamera_scene.so
+vendor/lib64/libcamerapostproc.so
 vendor/lib64/libcamlog.so
 vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2svarnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libchilog.so
 vendor/lib64/libcom.qti.chinodeutils.so
-vendor/lib64/libc++_shared.so
-vendor/lib64/libcvp2_hfi.so
 vendor/lib64/libcvp2.so
+vendor/lib64/libcvp2_hfi.so
 vendor/lib64/libcvp_common.so
 vendor/lib64/libcvpcpuRev_skel.so
 vendor/lib64/libdualcam_optical_zoom_control.so
-vendor/lib64/libhdrdynamicootf.so
 vendor/lib64/libhdrdynamic.so
-vendor/lib64/libI420colorconvert.so
+vendor/lib64/libhdrdynamicootf.so
 vendor/lib64/libipebpsstriping.so
 vendor/lib64/libmiai_portraitsupernight.so
-vendor/lib64/libmialgoengine.so
 vendor/lib64/libmialgo_ie_capture.so
 vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
+vendor/lib64/libmialgoengine.so
 vendor/lib64/libmibokeh_855.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
@@ -204,13 +206,12 @@ vendor/lib64/libsnpe_dsp_domains_system.so
 vendor/lib64/libsnpe_dsp_domains_v2.so
 vendor/lib64/libsnpe_dsp_domains_v2_system.so
 vendor/lib64/libsnpe_dsp_domains_v3.so
-vendor/lib64/libSNPE.so
-vendor/lib64/libsnsapi.so
 vendor/lib64/libsns_device_mode_stub.so
-vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libsns_fastRPC_util.so
 vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libsns_registry_skel.so
+vendor/lib64/libsnsapi.so
+vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libsymphony-cpu.so
@@ -220,7 +221,6 @@ vendor/lib64/libthreadutils.so
 vendor/lib64/libtriplecam_optical_zoom_control.so
 vendor/lib64/libvideofilter_only.so
 vendor/lib64/libvidhance.so
-vendor/lib64/libXMFaceFocus.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
 # Camera-arcsoft
@@ -229,8 +229,8 @@ vendor/lib64/libarcsoft_hdr_detection.so
 vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_portrait_lighting.so
 vendor/lib64/libarcsoft_portrait_lighting_c.so
-vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libarcsoft_qnnhtp.so
+vendor/lib64/libarcsoft_super_night_raw.so
 
 # Camera (camerax)
 vendor/lib/libcamxexternalformatutils.so
@@ -303,6 +303,7 @@ vendor/etc/camera/camxoverridesettings.txt
 vendor/etc/camera/com.xiaomi.dcal.wd.golden
 vendor/etc/camera/eisoverridesettings.txt
 vendor/etc/camera/hdrd_ui9_params.config
+vendor/etc/camera/libarcsoft_super_night_raw_bin.so
 vendor/etc/camera/mibokeh_855_opencl.bin
 vendor/etc/camera/mibokeh_855_parameter.bin
 vendor/etc/camera/model.dat
@@ -311,7 +312,6 @@ vendor/etc/camera/model_front.dlc
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/sr_params.xml
 vendor/etc/camera/vidhance_calibration
-vendor/etc/camera/libarcsoft_super_night_raw_bin.so
 
 # Camera-firmware
 vendor/firmware/CAMERA_ICP.elf
@@ -323,8 +323,8 @@ vendor/lib64/libmmcamera_faceproc2.so
 # Charger (HVDCP)
 vendor/bin/hvdcp_opti
 vendor/bin/init.qti.chg_policy.sh
-vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 vendor/etc/charger_fstab.qti
+vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 
 # Charger (Mi Turbo Charge)
 vendor/bin/batterysecret
