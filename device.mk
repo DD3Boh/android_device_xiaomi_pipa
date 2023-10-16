@@ -7,6 +7,8 @@
 # A/B
 TARGET_IS_VAB := true
 
+PRODUCT_IS_TABLET := true
+
 # Inherit from sm8250-common
 $(call inherit-product, device/xiaomi/sm8250-common/kona.mk)
 
