@@ -16,6 +16,7 @@ TARGET_SCREEN_DENSITY := 400
 
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/pipa.config
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
