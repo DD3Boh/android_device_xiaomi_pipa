@@ -37,7 +37,7 @@ public class PenUtils {
     }
 
     private static void refreshPenMode() {
-        for (int id : mInputManager.getInputDeviceIds()) {
+        /*for (int id : mInputManager.getInputDeviceIds()) {
             if (isDeviceXiaomiPen(id)) {
                 if (DEBUG) Log.d(TAG, "refreshPenMode: Found Xiaomi Pen");
                 enablePenMode();
@@ -46,13 +46,15 @@ public class PenUtils {
         }
         if (DEBUG) Log.d(TAG, "refreshPenMode: No Xiaomi Pen found");
         disablePenMode();
+        */
+        enablePenMode();
     }
-
+    /*
     private static boolean isDeviceXiaomiPen(int id) {
         InputDevice inputDevice = mInputManager.getInputDevice(id);
         return inputDevice.getVendorId() == 6421 && inputDevice.getProductId() == 19841;
     }
-
+    */
     private static InputDeviceListener mInputDeviceListener = new InputDeviceListener() {
             @Override
             public void onInputDeviceAdded(int id) {
