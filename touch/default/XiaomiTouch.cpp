@@ -24,7 +24,6 @@
 // XiaomiTouch device declarations
 #define SET_CUR_VALUE 0
 #define TOUCH_DEV_PATH "/dev/xiaomi-touch"
-#define TOUCH_ID 0
 #define TOUCH_MAGIC 'T'
 #define TOUCH_IOC_SET_CUR_VALUE _IO(TOUCH_MAGIC, SET_CUR_VALUE)
 
@@ -37,7 +36,7 @@ namespace aidl::vendor::lineage::xiaomitouch {
 
     file_fd fd(open(TOUCH_DEV_PATH, O_RDWR));
 
-    int buf[3] = {TOUCH_ID, mode, value};
+    int buf[2] = {mode, value};
 
     if (fd.get() == -1) {
         if (!DISABLE_DEBUG) LOG(ERROR) << TAG << ": " << "Failed to open: " << TOUCH_DEV_PATH;
