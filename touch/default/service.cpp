@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2023 Paranoid Android
+// Copyright (C) 2023 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -12,7 +12,7 @@
 
 #include "XiaomiTouch.h"
 
-using ::aidl::vendor::aospa::xiaomitouch::XiaomiTouch;
+using ::aidl::vendor::lineage::xiaomitouch::XiaomiTouch;
 
 template <class C>
 static void registerAsService(std::shared_ptr<C> service, const char *inst) {

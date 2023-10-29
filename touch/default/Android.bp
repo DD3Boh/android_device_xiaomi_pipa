@@ -1,18 +1,18 @@
 //
-// Copyright (C) 2023 Paranoid Android
+// Copyright (C) 2023 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 
 cc_binary {
-    name: "vendor.aospa.xiaomitouch-service",
-    init_rc: ["vendor.aospa.xiaomitouch.rc"],
-    vintf_fragments: ["vendor.aospa.xiaomitouch.xml"],
+    name: "vendor.lineage.xiaomitouch-service",
+    init_rc: ["vendor.lineage.xiaomitouch.rc"],
+    vintf_fragments: ["vendor.lineage.xiaomitouch.xml"],
     shared_libs: [
         "libbase",
         "libbinder_ndk",
         "libbinder",
-        "vendor.aospa.xiaomitouch-ndk",
+        "vendor.lineage.xiaomitouch-ndk",
     ],
 
     cflags: [

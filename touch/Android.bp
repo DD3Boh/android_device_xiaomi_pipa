@@ -1,12 +1,12 @@
 //
-// Copyright (C) 2023 Paranoid Android
+// Copyright (C) 2023 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 
 aidl_interface {
-    name: "vendor.aospa.xiaomitouch",
-    srcs: ["vendor/aospa/xiaomitouch/*.aidl"],
+    name: "vendor.lineage.xiaomitouch",
+    srcs: ["vendor/lineage/xiaomitouch/*.aidl"],
     vendor_available: true,
     unstable: true,
     backend: {

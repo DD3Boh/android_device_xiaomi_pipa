@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2023 Paranoid Android
+// Copyright (C) 2023 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -30,7 +30,7 @@
 
 using file_fd = android::base::unique_fd;
 
-namespace aidl::vendor::aospa::xiaomitouch {
+namespace aidl::vendor::lineage::xiaomitouch {
 
 ::ndk::ScopedAStatus XiaomiTouch::setModeValue(int32_t mode, int32_t value) {
     if (!DISABLE_DEBUG) LOG(INFO) << TAG << ": " << "setModeValue called with value = " << value;
