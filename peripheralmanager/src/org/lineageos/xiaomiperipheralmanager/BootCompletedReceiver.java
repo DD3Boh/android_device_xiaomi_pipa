@@ -19,6 +19,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
-        PenUtils.setup(context);
+        PenUtils penutils = new PenUtils();
+        penutils.setup(context);
     }
 }

@@ -25,16 +25,16 @@ public class PenUtils {
     private static final String ITOUCHFEATUREL_AIDL_INTERFACE =
             "vendor.lineage.xiaomitouch.IXiaomiTouch/default";
 
-    private static InputManager mInputManager;
-    private static IXiaomiTouch mXiaomiTouch;
+    private InputManager mInputManager;
+    private IXiaomiTouch mXiaomiTouch;
 
-    public static void setup(Context context) {
+    public void setup(Context context) {
         mInputManager = (InputManager) context.getSystemService(Context.INPUT_SERVICE);
         refreshPenMode();
         mInputManager.registerInputDeviceListener(mInputDeviceListener, null);
     }
 
-    private static void setXiaomiTouchMode(int mode, int value) {
+    private void setXiaomiTouchMode(int mode, int value) {
         final IXiaomiTouch touchFeature = getXiaomiTouch();
         if (touchFeature == null) {
             Log.e(TAG, "setXiaomiTouchMode: touchFeature is null!");
@@ -48,7 +48,7 @@ public class PenUtils {
         }
     }
 
-    private static IXiaomiTouch getXiaomiTouch() {
+    private IXiaomiTouch getXiaomiTouch() {
         if (mXiaomiTouch == null) {
             if (DEBUG) Log.d(TAG, "getXiaomiTouch: mXiaomiTouch=null");
             try {
@@ -65,17 +65,17 @@ public class PenUtils {
         return mXiaomiTouch;
     }
 
-    private static void enablePenMode() {
+    private void enablePenMode() {
         Log.d(TAG, "enablePenMode: Enable Pen Mode");
         setXiaomiTouchMode(20, 18);
     }
 
-    private static void disablePenMode() {
+    private void disablePenMode() {
         Log.d(TAG, "disablePenMode: Disable Pen Mode");
         setXiaomiTouchMode(20, 0);
     }
 
-    private static void refreshPenMode() {
+    private void refreshPenMode() {
         /*for (int id : mInputManager.getInputDeviceIds()) {
             if (isDeviceXiaomiPen(id)) {
                 if (DEBUG) Log.d(TAG, "refreshPenMode: Found Xiaomi Pen");
@@ -88,12 +88,12 @@ public class PenUtils {
         enablePenMode();
     }
 
-    private static boolean isDeviceXiaomiPen(int id) {
+    private boolean isDeviceXiaomiPen(int id) {
         InputDevice inputDevice = mInputManager.getInputDevice(id);
         return inputDevice.getVendorId() == 6421 && inputDevice.getProductId() == 19841;
     }
 
-    private static InputDeviceListener mInputDeviceListener = new InputDeviceListener() {
+    private InputDeviceListener mInputDeviceListener = new InputDeviceListener() {
             @Override
             public void onInputDeviceAdded(int id) {
                 refreshPenMode();
