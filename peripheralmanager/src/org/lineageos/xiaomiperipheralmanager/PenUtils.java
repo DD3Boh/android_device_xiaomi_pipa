@@ -45,7 +45,7 @@ public class PenUtils {
 
     private static void refreshPenMode() {
         for (int id : mInputManager.getInputDeviceIds()) {
-            if (isDeviceXiaomiPen(id) || preferences.getInt(SHARED_STYLUS,0)==1) {
+            if (isDeviceXiaomiPen(id) || (preferences!=null && preferences.getInt(SHARED_STYLUS,0)==1)) {
                 if (DEBUG) Log.d(TAG, "refreshPenMode: Found Xiaomi Pen");
                 enablePenMode();
                 return;
