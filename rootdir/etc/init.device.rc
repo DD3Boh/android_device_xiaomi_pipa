@@ -7,8 +7,18 @@
 on boot
     chown system system /dev/xiaomi-touch
     chmod 0664 /dev/xiaomi-touch
+    chown system system /dev/nanodev0
+    chmod 0664 /dev/nanodev0
+    start xiaomi-keyboard
 
 service xiaomi-pen /vendor/bin/xiaomi-pen ${persist.vendor.parts.pen}
+    class main
+    user system
+    group system input
+    oneshot
+    disabled
+
+service xiaomi-keyboard /vendor/bin/xiaomi-keyboard
     class main
     user system
     group system input
